@@ -1,0 +1,78 @@
+\chapter{\textit{Linear Algebra}}
+
+Right so from what I understand you don't actually need all of this for ML, but effectively what MML, and by extension what I'm doing here, is to just put all the information in one place that's easier to access and read than the textbook.
+
+\section{Introduction}
+
+\begin{description}
+    \item[Algebra] Set of objects and symbols creates to represent abstract concepts mathematically and then to further manipulate them through their operations. 
+    \item[Linear Algebra] Algebra associated with the study of vectors and how to manipulate them. Key examples: (1) Geometric, (2) Polynomial, (3) time-series data, and, (4) sequences and vector-embeddings. 
+    \item[Generic Vectors] A vector $\bm{v} \in \mathbb{R}^n$ is a vector of dimension $n$. 
+\end{description}
+
+\section{System of Linear Equations}
+
+A system of $m$ linear equations in $n$ variables is represented generically as:
+
+\begin{equation}
+    \begin{aligned}
+        a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \hdots + a_{1n-1}x_{n-1} + a_{1n}x_n &= b_1 \\
+        a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \hdots + a_{2n-1}x_{n-1} + a_{2n}x_n &= b_2 \\
+        \vdots \quad \quad \vdots \\
+        a_{m1}x_1 + a_{m2}x_2 + a_{m3}x_3 + \hdots + a_{mn-1}x_{n-1} + a_{mn}x_n &= b_m \\
+    \end{aligned}
+    \label{eq:generic-sys-lin-eq}
+\end{equation}
+
+The notes on solving a system of linear equations have been written by hand and need to be transcribed here. Might let an AI do that for me. For now I will revisit this later. 
+
+\section{Vector Spaces}
+
+\subsection{Groups}
+
+A \textbf{Group} is defined as $G := (\mathcal{G}, \otimes)$, where $\mathcal{G}$ is a set of some elements and $\otimes$ is an operation defined on $\mathcal{G} \times \mathcal{G} \rightarrow \mathcal{G}$, such that it satisfies:
+
+\begin{enumerate}
+    \item Associativity: $\forall a, b, c \in \mathcal{G} : (a \otimes b) \otimes c = a \otimes (b \otimes c)$.
+    \item Closure: $\forall a, b \in \mathcal{G} : a \otimes b \in \mathcal{G}$.
+    \item Neutral Element: $\forall a \in \mathcal{G} \space \exists e \in \mathcal{G} : a \otimes e = e \otimes a = a$.
+    \item Inverse Element: $\forall a \in \mathcal{G} \space \exists b \in \mathcal{G} : a \otimes b = b \otimes a = e$. Here $b$ is called the inverse of $a$, and this is generally denoted $b = a^{-1}$.
+\end{enumerate}
+
+An \textbf{Abelian Group} is a special case for the above definition where $\otimes$ is also \textbf{commutative}, i.e. $a \otimes b = b \otimes a$.
+
+\textbf{A General Linear Group} is defined as $GL(\mathbb{R}^{n \times n}, \times)$, where the elements are $n \times n$ \textit{invertible} matrices. This is, of course, \textbf{not an abelian group} because $A \times B \neq B \times A$.
+
+\subsection{Vector Spaces formalised using Groups}
+
+A \textbf{vector space} is defined as $V(\mathcal{V} = \mathbb{R}^n, +, \cdot)$. The operation $+$ is elementwise addition and $\cdot$ is a scalar multiplication. Note here that the second operation is not an inner-operation, i.e. it involves elements not limited to $\mathcal{V}$. Formally:
+
+\begin{align}
+    + &: \mathcal{V \times V \rightarrow V}\\
+    \cdot &: \mathbb{R} \times \mathcal{V \rightarrow V}
+\end{align}
+
+Properties of a vector space:
+
+\begin{enumerate}
+    \item $V(\mathcal{V}, +)$ is an abelian group.
+    \item $\cdot$ is distributive over $+$.
+    \item The outer operation is Associative and obeys the existence of a Neutral Element.
+\end{enumerate}
+
+Vector spaces (and their definitions and properties) are extended to matrices by setting $\mathcal{V} = \mathbb{R} ^ {m \times n}$, which you will find obey the rules we've set above.
+
+\textbf{Vector subspaces} are denoted ${U (\mathcal{U}, +, \cdot)} \subseteq V : \mathcal{U \neq \Phi \subseteq V}$ where, they obey all the aforementioned properties of vector spaces and in additions:
+
+\begin{enumerate}
+    \item Closure property over $\mathcal{U}$ for both the inner and outer operation.
+    \item $\mathcal{U} \neq \Phi$ and the zero vector $\bm{0} \in \mathcal{U}$.
+\end{enumerate}
+
+\subsection{Linear Independence}
+
+For $k \in \mathbb{N}$ vectors $\bm{x}_i, \hdots, \bm{x}_k \in V$, where $V$ is a vector space, if some linear combination $\sum_{i=0}^{k} \lambda_i \bm{x}_i$ exists such that one of the scalar coefficients $\lambda_i \neq 0$ then the vectors are \textit{linearly dependent}. If only the trivial solution exists, i.e., $\lambda_i = 0 \forall i=1,\hdots,k$, then the vectors are \textit{linearly independent}.
+
+\subsection{Basis and Rank}
+
+The \textbf{Generating Set} is a set $\mathcal{A} = \left\{\bm{x}_i, \hdots, \bm{x}_k \right\} \subseteq \mathcal{V}$ such that any vector $\bm{v} \in \mathcal{V}$ can be expressed as a linear combination of the vectors in $\mathcal{A}$. This subset of the vector space is said to span the vector space, thereby the definition of the \textbf{span} is $\mathcal{V} = \text{span}{[\mathcal{A}]}$, where it's basically the set of all the linear combinations of the vectors in $\mathcal{A}$.

@@ -1,0 +1,75 @@
+\documentclass[a4paper]{report}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage[margin=2cm]{geometry}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\hypersetup{
+    colorlinks=true
+    linkcolor=blue
+    urlcolor=blue
+    citecolor=blue
+    filecolor=blue
+}
+
+\usepackage[T1]{fontenc}
+% \usepackage[scale=0.9]{scholax}
+\usepackage{fouriernc}
+
+\title{Solutions to \textit{Mathematics for Machine Learning}}
+\author{Rudraksh Srivastava}
+\date{}
+\pagestyle{empty}
+
+\titleformat{\chapter}[display]
+    {\normalfont \large \bfseries}
+    {\chaptertitlename\ \thechapter}{5pt}{\huge}
+
+\newcommand{\D}[2]{\ensuremath{\frac{\mathrm{d}#1}{\mathrm{d}#2}}}
+
+\newcounter{examplecounter}[chapter]
+
+\newenvironment{example}[1]{
+    \refstepcounter{examplecounter}
+    \begin{tcolorbox}
+        [
+            title = Example \thechapter.\theexamplecounter: #1, 
+            colback=white, 
+            colframe=black!5!white, 
+            coltitle=black,
+            boxrule=1pt,
+            arc=3pt
+        ]
+}{
+    \end{tcolorbox}
+}
+
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+    
+    \chapter*{Short Foreword}
+    
+    This document contains my personal summary notes and attempted solutions to Diesenroth's Mathematics for Machine Learning. The solution manual is organised based on the chapters from the book. There are no exercises past chapter 7 in the book, and no exercises for the introductory chapter 1. Everything else has been maximally solved, and reasoning behind solutions is extensively provided. If you find errata, please open a pull request in the associated git-repository. There is no public repository at this time, if you are reading an early version of the document, I suppose the errata would need to be pointed our directly to me. Feel free to do that.
+
+    \pagebreak
+
+    \tableofcontents
+    
+    \input{solutions/01-Chapter-2.tex}
+    \input{solutions/02-Chapter-3.tex}
+    \input{solutions/03-Chapter-4.tex}
+    \input{solutions/04-Chapter-5.tex}
+    \input{solutions/05-Chapter-6.tex}
+    \input{solutions/06-Chapter-7.tex}
+
+\end{document}

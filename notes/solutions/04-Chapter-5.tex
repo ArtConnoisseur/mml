@@ -1,0 +1,40 @@
+\chapter{Vector Calculus}
+
+Right so like previous sections, this should mainly be important formulae, definitions and important properties organised by the sections in the original book. I am considering the inclusion of examples, we'll see about that though. They would have to be external to the book too.
+
+\section{Revising Univariate Differentiation}
+
+The classical definition of differentiation of a differentiable function $f(x) : \mathbb{R} \rightarrow \mathbb{R}$ defined for a single continuous variable $x$ is given by:
+
+\begin{equation}
+    f'(x) = \D{f}{x} = 
+    \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h}
+\end{equation}
+
+\begin{description}
+    \item[Sum Rule]: $(f(x) + g(x))' = f'(x) + g'(x)$
+    \item[Product Rule:] $(f(x)g(x))' = f'(x)g(x) + f(x)g'(x)$
+    \item[Quotient Rule:] $\left( \frac{f(x)}{g(x)} \right)' = f'(x)g(x) - f(x)g'(x)$
+    \item[Chain Rule:] $(g(f(x)))' = (g \text{o}  f)' = g'(f(x)) \times f'(x)$   
+\end{description}
+
+\subsection{Taylor Series}
+
+The \textit{taylor polynomial} is defined as \Cref{eq:taylor-polynomial}, where $f^{(k)}$ denotes the $k^{th}$ derivative of $f$.
+
+\begin{equation}
+    T_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k
+    \label{eq:taylor-polynomial} 
+\end{equation}
+
+The \textit{taylor series} is defined as $T_{\infty}$ and when $x_0 = 0$, it is a special case called the \textit{Maclaurien series}. If $f(x) = T_\infty$ then the function is an analytic function. 
+
+\section{Partial Differentiation and Gradient}
+
+Okay so a little bit of notation first, the textbook uses $\frac{\mathrm{d}f}{\mathrm{d}\bm{x}}$ to denote the gradient. I haven't come across it in the book yet, but I will use this and more commonly, $\nabla_{\bm{x}} f$, to denote the gradient with respect to the vector $\bm{x}$. The gradient is the partial derivative of a function defined on a vector w.r.t all components of $\bm{x}$.
+
+
+
+\begin{example}{Partial Derivatives}
+    Suppose we have a vector $\bm{x}$ and some function defined on the components of 
+\end{example}
